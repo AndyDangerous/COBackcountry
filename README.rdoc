@@ -1,3 +1,21 @@
+Resources to remember:
+-http://aq1018.github.io/blog/2014/08/22/streaming-geojson-with-gdal-rack-chunked-and-rails-live-streaming/
+
+Resources:
+* SNOW:
+* http://powderlin.es/api.html
+* https://github.com/firstchair-io/snotel
+* http://www.wcc.nrcs.usda.gov/snow/
+
+* JAVASCTIPT:
+* http://joelencioni.com/blog/2014/01/03/integrating-bower-with-rails/
+
+
+
+
+
+
+
 == README
 
 This README would normally document whatever steps are necessary to get the
