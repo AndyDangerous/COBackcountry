@@ -6,13 +6,12 @@
     <p class="navigation-menu-button" id="js-mobile-menu">MENU</p>
     <div class="nav">
       <ul id="navigation-menu">
-        <li class="nav-link"><a href="javascript:void(0)">Ski Lines</a></li>
-        <li class="nav-link"><a href="javascript:void(0)">About Us</a></li>
-        <li class="nav-link"><a href="javascript:void(0)">Contact</a></li>
-        <li class="nav-link more"><a href="javascript:void(0)">More</a>
+        <li class="nav-link"><%= link_to "About Us", about_path %></li>
+        <li class="nav-link"><%= link_to "Contact", contact_path %></li>
+        <li class="nav-link more"><a href="javascript:void(0)">More Backcountry</a>
           <ul class="submenu">
-            <li><a href="javascript:void(0)">Backcountry Safety</a></li>
-            <li><a href="javascript:void(0)">Backcountry Resources</a></li>
+            <li> <%= link_to "Safety", safety_path %></li>
+            <li> <%= link_to "Resources", resources_path %></a></li>
           </ul>
         </li>
 
@@ -21,7 +20,7 @@
     <div class="navigation-tools">
       <div class="search-bar">
         <div class="search-and-submit">
-          <input type="search" placeholder="Enter Search" />
+          <input type="search" placeholder="Find a route" />
           <button type="submit">
             <img src="https://raw.githubusercontent.com/Magnus-G/Random/master/search-icon.png" alt="">
           </button>

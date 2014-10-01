@@ -4,6 +4,10 @@ Rails.application.routes.draw do
   resources :ski_lines
 
   get '/bs_css_test' => 'static_pages#bs_css_test'
+  get '/resources' => 'static_pages#resources'
+  get '/safety' => 'static_pages#safety'
+  get '/about' => 'static_pages#about'
+  get '/contact' => 'static_pages#contact'
 
   # The priority is based upon order of creation: first created -> highest priority.
 
