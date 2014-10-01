@@ -1,0 +1,34 @@
+.boxes {
+  @include clearfix;
+  @include outer-container;
+}
+
+.box {
+  background: tint(red, 40%);
+  margin: 20px;
+  @include size(100px);
+  float: left;
+  @include span-columns;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #FFF;
+  font-size: 14px;
+  font-family: $helvetica;
+}
+
+p {
+  font-family: $helvetica;
+  @include outer-container;
+}i
+
+button {
+  @include button(simple);
+}
+
+map {
+  height: 300px;
+  width: 400px;
+}

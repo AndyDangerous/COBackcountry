@@ -30,8 +30,9 @@ gem 'spring',        group: :development
 gem 'bcrypt', '~> 3.1.7'
 
 # Front end
-gem 'bourbon'
-gem 'neat'
+# gem 'bourbon'
+# gem 'neat'
+gem 'refills'
 
 # Use unicorn as the app server
 gem 'unicorn'

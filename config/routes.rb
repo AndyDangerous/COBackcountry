@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
   root 'static_pages#index'
+
   resources :ski_lines
+
+  get '/bs_css_test' => 'static_pages#bs_css_test'
+
   # The priority is based upon order of creation: first created -> highest priority.
+
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
