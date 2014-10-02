@@ -2,16 +2,19 @@
 <html>
 <head>
   <%= favicon_link_tag 'favicon.ico' %>
-  <title>Cobackcountry</title>
+  <title>CO Backcountry</title>
   <%= include_gon %>
+  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-<%= render 'refills/navigation' %>
+  <div id="outer-container">
+    <%= render 'refills/navigation' %>
 
-<%= yield %>
+    <%= yield %>
+  </div>
 
 </body>
 </html>

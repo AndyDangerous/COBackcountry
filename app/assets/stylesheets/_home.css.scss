@@ -1,0 +1,13 @@
+#outer-container{
+  @include background-image(url("https://s3-us-west-1.amazonaws.com/cobackcountry/manitou_spgs_map.jpg"));
+}
+
+.small-map {
+  height: 600px;
+  width: 400px;
+}
+
+.big-map {
+  height: 600px;
+  width: 800px;
+}
