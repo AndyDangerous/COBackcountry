@@ -1,3 +1,9 @@
+@include background-image(url("http://www.lib.utexas.edu/maps/topo/colorado/pclmaps-topo-co-manitou-1907.jpg"));
+background-position: center top, center;
+background-repeat: no-repeat, repeat-x;
+
+
+
 .boxes {
   @include clearfix;
   @include outer-container;

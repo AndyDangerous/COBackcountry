@@ -29,6 +29,9 @@ gem 'spring',        group: :development
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+# Use AWS for asset management
+gem 'aws-sdk'
+
 # Front end
 # gem 'bourbon'
 # gem 'neat'
