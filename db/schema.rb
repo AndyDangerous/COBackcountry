@@ -17,12 +17,14 @@ ActiveRecord::Schema.define(version: 20141001024338) do
   enable_extension "plpgsql"
   enable_extension "postgis"
 
-  create_table "ski_lines", force: true do |t|
+  create_table "ski_places", force: true do |t|
     t.string   "name"
-    t.spatial  "latlon",      limit: {:srid=>4326, :type=>"point", :geographic=>true}
     t.text     "description"
+    t.string   "snotel_token"
+    t.string   "avalanche_forecast_zone"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.spatial  "geometry",                limit: {:srid=>0, :type=>"geometry"}
   end
 
 end

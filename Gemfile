@@ -50,6 +50,7 @@ gem 'unicorn'
 gem 'gon'
 
 # Geospatial gems
+gem 'georuby'
 gem 'rgeo'
 gem 'rgeo-geojson'
 gem 'activerecord-postgis-adapter'

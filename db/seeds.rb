@@ -2,5 +2,5 @@ data = [{"type"=>"Feature","geometry"=>{"type"=>"Point","coordinates"=>[-105.604
 
 data.each do |datum|
   feature = RGeo::GeoJSON.decode(datum)
-  SkiLine.create(latlon: feature.geometry, name: feature['name'])
+  SkiPlace.create(geometry: feature.geometry, name: feature['name'])
 end

@@ -1,32 +1,18 @@
-@include background-image(url("http://www.lib.utexas.edu/maps/topo/colorado/pclmaps-topo-co-manitou-1907.jpg"));
+@include background-image(url("https://s3-us-west-1.amazonaws.com/cobackcountry/manitou_spgs_map.jpg"));
 background-position: center top, center;
 background-repeat: no-repeat, repeat-x;
 
-
-
-.boxes {
-  @include clearfix;
-  @include outer-container;
-}
-
-.box {
-  background: tint(red, 40%);
-  margin: 20px;
-  @include size(100px);
-  float: left;
-  @include span-columns;
-}
 
 body {
   margin: 0;
   padding: 0;
   background-color: #FFF;
   font-size: 14px;
-  font-family: $helvetica;
+  font-family: $lucida-grande;
 }
 
 p {
-  font-family: $helvetica;
+  font-family: $lucida-grande;
   @include outer-container;
 }i
 

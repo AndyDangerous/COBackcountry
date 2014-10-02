@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root 'static_pages#index'
 
-  resources :ski_lines
+  resources :ski_places
 
   get '/bs_css_test' => 'static_pages#bs_css_test'
   get '/resources' => 'static_pages#resources'
