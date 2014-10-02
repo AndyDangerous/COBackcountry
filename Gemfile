@@ -40,12 +40,6 @@ gem 'refills'
 # Use unicorn as the app server
 gem 'unicorn'
 
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
-
-# Use debugger
-# gem 'debugger', group: [:development, :test]
-
 # Use Gon to access variables in js in views
 gem 'gon'
 
@@ -61,8 +55,20 @@ gem 'leaflet-markercluster-rails'
 gem 'snotel'
 
 group :development, :test do
+  gem 'rspec-rails'
   gem 'pry'
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'seed_dump'
+  gem 'spring-commands-rspec'
+	gem 'capybara'
+	gem 'shoulda-matchers', require: false
+	gem 'launchy'
+end
+
+group :test do
+  gem 'nyan-cat-formatter'
+  gem 'poltergeist'
+  gem 'database_cleaner'
+  gem 'factory_girl_rails', '~> 4.0'
 end

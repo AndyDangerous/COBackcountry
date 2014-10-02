@@ -5,7 +5,6 @@ class SkiPlacesController < ApplicationController
 
   def create
     @ski_place = SkiPlace.new(ski_place_params)
-    # binding.pry
     if @ski_place.save
       # background_worker for geoprocessing
       flash[:notice] = "Your route has been added to the map. It should update momentarily."
@@ -30,7 +29,6 @@ class SkiPlacesController < ApplicationController
   end
 
   def update_params(columns)
-    # factory = RGeo::GeoJSON::EntityFactory.instance
     thing = columns[:geometry].read
     feature = RGeo::GeoJSON.decode(thing, json_parser: :json)
     if feature.first.geometry
@@ -38,20 +36,6 @@ class SkiPlacesController < ApplicationController
     else
       columns[:geometry] = feature.geometry
     end
-
-    # columns[:gpx_file] = RGeo::GeoJSON.encode(factory.featuregpx_file))
-    # the_geom = ImportGeometry(columns[:geometry])
-    # columns[:geometry] = the_geom
-    # columns[:snotel_token] = CalculateSnotelToken(the_geom)
-    # columns[:avalanche_forecast_zone] = FindAvalancheForecastZone(the_geom)
-    # columns[:gpx_file]
-
     columns
   end
 end
-
-#
-# data.each do |datum|
-#   feature = RGeo::GeoJSON.decode(datum)
-#   SkiPlace.create(geometry: feature.geometry, name: feature['name'])
-# end
