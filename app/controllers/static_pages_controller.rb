@@ -8,4 +8,10 @@ class StaticPagesController < ApplicationController
       RGeo::GeoJSON.encode(factory.feature(location.geometry, nil, {name: "#{location.name}", id: "#{location.id}"}))
     end
   end
+
+  def about
+  end
+
+  def contact
+  end
 end
