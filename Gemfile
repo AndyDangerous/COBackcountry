@@ -47,9 +47,12 @@ gem 'gon'
 gem 'georuby'
 gem 'rgeo'
 gem 'rgeo-geojson'
+gem 'rgeo-activerecord'
 gem 'activerecord-postgis-adapter'
 gem 'leaflet-rails', github: "axyjo/leaflet-rails"
 gem 'leaflet-markercluster-rails'
+
+gem 'squeel'
 
 # Snow Gems
 gem 'snotel'

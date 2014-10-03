@@ -1,6 +1,16 @@
 class SkiPlace < ActiveRecord::Base
+
   self.rgeo_factory_generator = RGeo::Geos.factory_generator
-  set_rgeo_factory_for_column(:geometry, RGeo::Geographic.spherical_factory(srid: 4326))
+
+  before_save :get_snotel
+
+  # binding.pry
+  private
+
+
+  def get_snotel
+    puts SnotelFinder.centroid(self)
+  end
 
 end
 #
