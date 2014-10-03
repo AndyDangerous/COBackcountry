@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141001024338) do
+ActiveRecord::Schema.define(version: 20141003032852) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,15 @@ ActiveRecord::Schema.define(version: 20141001024338) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.spatial  "geometry",                limit: {:srid=>0, :type=>"geometry"}
+  end
+
+  create_table "users", force: true do |t|
+    t.string   "name"
+    t.string   "nickname"
+    t.string   "uid"
+    t.string   "provider"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end
