@@ -8,6 +8,8 @@
 }
 
 .big-map {
-  height: 600px;
-  width: 800px;
+  height: 800px;
+  @include clearfix;
+  position: relative;
+  z-index: 9999;
 }

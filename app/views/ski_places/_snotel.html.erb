@@ -1,0 +1,29 @@
+<h3>Nearby SNOTEL Readings</h3>
+
+<%= @fu = @ski_place.snotel %>
+<table>
+  <tr>
+    <td>
+      "New Snow"
+    </td>
+    <td>
+      <%= "#{@fu.first[:snow_water_equivalent_in]}" %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      "New SWE"
+    </td>
+    <td>
+      <%= "#{@fu.first[:change_in_snow_water_equivalent_in]}" %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      "Snow Depth"
+    </td>
+    <td>
+      <%= "#{@fu.first[:snow_depth_in]}" %>
+    </td>
+  </tr>
+</table>

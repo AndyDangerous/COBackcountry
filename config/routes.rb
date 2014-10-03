@@ -3,7 +3,6 @@ Rails.application.routes.draw do
 
   resources :ski_places
 
-  get '/bs_css_test' => 'static_pages#bs_css_test'
   get '/resources' => 'static_pages#resources'
   get '/safety' => 'static_pages#safety'
   get '/about' => 'static_pages#about'

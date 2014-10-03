@@ -1,11 +1,28 @@
-<h2> <%= @ski_place.name %> </h2>
 
-<div id="description">
-  <%= @ski_place.description %>
-</div>
-
-<%= link_to "Back", root_path %>
 
 <div id="map" class='small-map'>
 
 </div>
+
+<div id="ski_place_information">
+  <h2> <%= @ski_place.name %> </h2>
+
+  <div id="snotel">
+    <%= render partial: "snotel", locals: {ski_place: @ski_place} %>
+  </div>
+
+  <div id="description">
+    <h4>Description</h4>
+    <%= @ski_place.description %>
+  </div>
+
+  <%= link_to "Back", root_path %>
+</div>
+
+
+
+t.string   "snotel_token"
+t.string   "avalanche_forecast_zone"
+t.datetime "created_at"
+t.datetime "updated_at"
+t.spatial  "geometry",
