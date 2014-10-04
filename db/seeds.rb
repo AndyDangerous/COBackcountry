@@ -2,5 +2,6 @@ data = [{"type"=>"Feature","geometry"=>{"type"=>"Point","coordinates"=>[-105.604
 
 data.each do |datum|
   feature = RGeo::GeoJSON.decode(datum)
+  SkiPlace.set_rgeo_factory_for_column(:geometry, RGeo::Geographic.spherical_factory(srid: 4326))
   SkiPlace.create(geometry: feature.geometry, name: feature['name'])
 end
