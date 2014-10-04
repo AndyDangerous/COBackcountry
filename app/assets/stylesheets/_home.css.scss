@@ -1,11 +1,16 @@
-#outer-container{
-  @include background-image(url("https://s3-us-west-1.amazonaws.com/cobackcountry/manitou_spgs_map.jpg"));
+#section{
+  
+  .small-map {
+    height: 600px;
+    @include span-columns(6);
+  }
+
+  #ski-place-information{
+    @include linear-gradient(to top, red, orange);
+    @include span-columns(3);
+  }
 }
 
-.small-map {
-  height: 600px;
-  width: 400px;
-}
 
 .big-map {
   height: 800px;
