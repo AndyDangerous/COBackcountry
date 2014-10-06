@@ -48,6 +48,8 @@ gem 'georuby'
 gem 'rgeo'
 gem 'rgeo-geojson'
 gem 'activerecord-postgis-adapter'
+
+# Cartography
 gem 'leaflet-rails', github: "axyjo/leaflet-rails"
 gem 'leaflet-markercluster-rails'
 

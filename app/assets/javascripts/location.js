@@ -3,7 +3,7 @@ var $;
 $ = jQuery;
 
 $(document).on("ready page:load", function(){
-  var fourteeners, location, map, _i, _len, _ref, _results;
+  var fourteeners, location, map, _i, _len, _ref, _results, markers;
   map = L.map('map').setView([39, -106], 7);
   L.tileLayer('http://{s}.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="http://osm.org/copyright" title="OpenStreetMap" target="_blank">OpenStreetMap</a> contributors | Tiles Courtesy of <a href="http://www.mapquest.com/" title="MapQuest" target="_blank">MapQuest</a> <img src="http://developer.mapquest.com/content/osm/mq_logo.png" width="16" height="16">',
@@ -18,4 +18,19 @@ $(document).on("ready page:load", function(){
     _results.push(fourteeners.addData(location));
   }
   return _results;
+  markers = L.newMarkerClusterGroup();
+  var points_rand = L.geoJson(points, {
+      onEachFeature: function (feature, layer) //functionality on click on feature
+          {
+          layer.bindPopup("hi! I am one of thousands"); //just to show something in the popup. could be part of the geojson as well!
+          }
+  });
+  map.addLayer(markers);
+  map.fitBounds(markers.getBounds()); //set view on the cluster extent
 });
+
+
+
+
+map.addLayer(markers);      // add it to the map
+map.fitBounds(markers.getBounds()); //set view on the cluster extent
