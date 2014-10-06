@@ -4,12 +4,12 @@ class SkiPlace < ActiveRecord::Base
 
   before_save :get_snotel
 
-  # binding.pry
+  binding.pry
   private
 
 
   def get_snotel
-    puts SnotelFinder.centroid(self)
+    puts SnotelFinder.find(self)
   end
 
 end

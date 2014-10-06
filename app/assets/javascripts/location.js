@@ -19,3 +19,8 @@ $(document).on("ready page:load", function(){
   }
   return _results;
 });
+
+
+$(document).on("ready page:load", function(){
+  w
+});

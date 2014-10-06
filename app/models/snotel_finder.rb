@@ -1,12 +1,11 @@
 class SnotelFinder
 
-  def self.centroid(ski_place)
-    binding.pry
-    where{ST_AsText(ST_Centroid(ski_place.geometry))}
+  def self.find(ski_place)
+    Snotel.daily(:berthoud_summit)
   end
 end
 
-# 
+#
 # SkiPlace.where{
 #   geometry, st_centroid
 # }.last
