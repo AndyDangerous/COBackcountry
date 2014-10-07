@@ -5,18 +5,24 @@ class SkiPlace < ActiveRecord::Base
   self.rgeo_factory_generator = RGeo::Geos.factory_generator
 
   # commented out because it takes too long during seeding
+  before_save binding.pry
+  # before_save :set_centroid
   # before_save :get_snotel
   # before_save :get_avalanche_forecast_zone
 
-  # binding.pry
+
   private
 
+  def set_centroid
+    SkiPlaceGeo.find_centroid(self)
+  end
+
   def get_avalanche_forecast_zone
-    AvyZone.find(self)
+    SkiPlaceGeo.find_avalanche_forecast_zone(self)
   end
 
   def get_snotel
-    SnotelFinder.find(self)
+    SkiPlaceGeo.find_snotel(self)
   end
 
 end

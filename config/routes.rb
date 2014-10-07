@@ -5,11 +5,19 @@ Rails.application.routes.draw do
   resources :avalanche_forecast_zones, only: [:index]
   resources :snotel_stations, only: [:index]
 
-  get '/bs_css_test' => 'static_pages#bs_css_test'
   get '/resources' => 'static_pages#resources'
   get '/safety' => 'static_pages#safety'
   get '/about' => 'static_pages#about'
   get '/contact' => 'static_pages#contact'
+
+  namespace :api do
+    namespace :v1 do
+      resources :ski_place_geo
+      # resources :items, only: [:index, :show]
+    end
+  end
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
 
