@@ -2,9 +2,9 @@ class SkiPlace < ActiveRecord::Base
 
   self.rgeo_factory_generator = RGeo::Geos.factory_generator
 
-  before_save :get_snotel
+  # before_save :get_snotel
 
-  binding.pry
+  # binding.pry
   private
 
 

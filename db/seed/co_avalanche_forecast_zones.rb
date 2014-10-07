@@ -1,5 +1,4 @@
-{"type": "FeatureCollection",
-    "features": [
+avalanche_forecast_zones = [
         {   "type": "Feature",
                 "geometry": {
                     "type": "MultiPolygon",
@@ -1004,7 +1003,7 @@
                 }
         },
         {   "type": "Feature",
-                "geometry": {
+                "geojson": {
                     "type": "MultiPolygon",
                     "coordinates": [
                         [
@@ -1317,7 +1316,7 @@
                 }
         },
         {   "type": "Feature",
-                "geometry": {
+                "geojson": {
                     "type": "MultiPolygon",
                     "coordinates": [
                         [
@@ -1742,7 +1741,7 @@
                 }
         },
         {   "type": "Feature",
-                "geometry": {
+                "geojson": {
                     "type": "MultiPolygon",
                     "coordinates": [
                         [
@@ -2011,7 +2010,7 @@
                 }
         },
         {   "type": "Feature",
-                "geometry": {
+                "geojson": {
                     "type": "MultiPolygon",
                     "coordinates": [
                         [
@@ -2332,7 +2331,7 @@
                 }
         },
         {   "type": "Feature",
-                "geometry": {
+                "geojson": {
                     "type": "MultiPolygon",
                     "coordinates": [
                         [
@@ -2481,7 +2480,7 @@
                 }
         },
         {   "type": "Feature",
-                "geometry": {
+                "geojson": {
                     "type": "MultiPolygon",
                     "coordinates": [
                         [
@@ -2878,7 +2877,7 @@
                 }
         },
         {   "type": "Feature",
-                "geometry": {
+                "geojson": {
                     "type": "MultiPolygon",
                     "coordinates": [
                         [
@@ -3287,7 +3286,7 @@
                 }
         },
         {   "type": "Feature",
-                "geometry": {
+                "geojson": {
                     "type": "MultiPolygon",
                     "coordinates": [
                         [
@@ -3480,4 +3479,3 @@
                 }
         }
     ]
-}

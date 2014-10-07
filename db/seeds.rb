@@ -1,31 +1,18 @@
-require_relative 'seed/fourteeners'
-require_relative 'seed/test_ruby'
+require_relative './seed/fourteeners'
+# binding.pry
+@fourteeners.each do |datum|
+  feature = RGeo::GeoJSON.decode(datum)
+  SkiPlace.set_rgeo_factory_for_column(:geometry, RGeo::Geographic.spherical_factory(srid: 4326))
+  SkiPlace.create(geometry: feature.geometry, name: feature['name'])
+end
 
-# load 'seed/co_avalanche_forecast_zones.json'
-
-# fourteeners.each do |datum|
-#   feature = RGeo::GeoJSON.decode(datum)
-#   SkiPlace.create(geometry: feature.geometry, name: feature['name'])
-# end
-
-
-avalanche_forecast_zones.each do |zone|
-  feature = RGeo::GeoJSON.decode(zone, json_parser: :json)
+avy_zones = File.read("#{Rails.root.to_s}/db/seed/co_avalanche_forecast_zones.json")
+feature_collection = RGeo::GeoJSON.decode(avy_zones, json_parser: :json)
+feature_collection.each do |feature|
+  # features = RGeo::GeoJSON.decode(zone, json_parser: :json)
+  # AvalancheForecastZone.set_rgeo_factory_for_column(:the_geom, RGeo::Geographic.spherical_factory(srid: 4326))
   AvalancheForecastZone.create(the_geom: feature.geometry,
                               name: feature['name'],
                               zone_url: feature['zone_url'],
                               url: feature['url'])
 end
-
-
-
-# def update_params(columns)
-#   thing = columns[:geometry].read
-#   feature = RGeo::GeoJSON.decode(thing, json_parser: :json)
-#   if feature.first.geometry
-#     columns[:geometry] = feature.first.geometry
-#   else
-#     columns[:geometry] = feature.geometry
-#   end
-#   columns
-# end
