@@ -1,4 +1,5 @@
 require_relative './seed/fourteeners'
+require_relative './seed/snotel_stations'
 # binding.pry
 @fourteeners.each do |datum|
   feature = RGeo::GeoJSON.decode(datum)
@@ -15,4 +16,15 @@ feature_collection.each do |feature|
                               name: feature['name'],
                               zone_url: feature['zone_url'],
                               url: feature['url'])
+end
+
+
+@snotel_stations.each do |station|
+  SnotelStation.create(elevation: station.elevation,
+                        latitude: 40.8852,
+                        longitude: -110.8277,
+                        name: station.name,
+                        timezone: station.timezone,
+                        triplet: station.triplet,
+                        wind: station.wind)
 end

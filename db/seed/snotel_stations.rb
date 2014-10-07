@@ -1,4 +1,4 @@
-snotel_stations = [
+@snotel_stations = [
   {
     elevation: 8777,
     latitude: 40.8852,
