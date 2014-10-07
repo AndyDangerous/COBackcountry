@@ -4,7 +4,7 @@ class CreateSkiPlaces < ActiveRecord::Migration
       t.string :name
       t.geometry :geometry, geographic: true
       t.text :description
-      t.string :snotel_token
+      t.string :snotel_station_id
       t.string :avalanche_forecast_zone_id
 
       t.timestamps

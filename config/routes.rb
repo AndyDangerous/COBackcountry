@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   resources :ski_places
   resources :avalanche_forecast_zones, only: [:index]
+  resources :snotel_stations, only: [:index]
 
   get '/bs_css_test' => 'static_pages#bs_css_test'
   get '/resources' => 'static_pages#resources'
