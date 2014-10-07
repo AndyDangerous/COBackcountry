@@ -31,10 +31,10 @@ class SkiPlacesController < ApplicationController
   def update_params(columns)
     thing = columns[:geometry].read
     feature = RGeo::GeoJSON.decode(thing, json_parser: :json)
-    if feature.first.geometry
-      columns[:geometry] = feature.first.geometry
-    else
+    if feature.geometry
       columns[:geometry] = feature.geometry
+    else
+      columns[:geometry] = feature.first.geometry
     end
     columns
   end

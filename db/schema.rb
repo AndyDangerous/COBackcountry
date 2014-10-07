@@ -18,20 +18,20 @@ ActiveRecord::Schema.define(version: 20141007041858) do
   enable_extension "postgis"
 
   create_table "avalanche_forecast_zones", force: true do |t|
+    t.spatial "the_geom", limit: {:srid=>4326, :type=>"multi_polygon", :geographic=>true}
     t.string  "name"
     t.string  "zone_url"
     t.string  "url"
-    t.spatial "the_geom", limit: {:srid=>0, :type=>"multi_polygon"}
   end
 
   create_table "ski_places", force: true do |t|
     t.string   "name"
+    t.spatial  "geometry",                   limit: {:srid=>4326, :type=>"geometry", :geographic=>true}
     t.text     "description"
     t.string   "snotel_token"
-    t.string   "avalanche_forecast_zone"
+    t.string   "avalanche_forecast_zone_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.spatial  "geometry",                limit: {:srid=>0, :type=>"geometry"}
   end
 
   create_table "snotel_stations", force: true do |t|
