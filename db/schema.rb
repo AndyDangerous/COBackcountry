@@ -27,8 +27,9 @@ ActiveRecord::Schema.define(version: 20141007041858) do
   create_table "ski_places", force: true do |t|
     t.string   "name"
     t.spatial  "geometry",                   limit: {:srid=>4326, :type=>"geometry", :geographic=>true}
+    t.spatial  "centroid",                   limit: {:srid=>4326, :type=>"point", :geographic=>true}
     t.text     "description"
-    t.string   "snotel_token"
+    t.string   "snotel_station_id"
     t.string   "avalanche_forecast_zone_id"
     t.datetime "created_at"
     t.datetime "updated_at"
