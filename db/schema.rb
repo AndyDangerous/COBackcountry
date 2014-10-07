@@ -17,6 +17,13 @@ ActiveRecord::Schema.define(version: 20141006053852) do
   enable_extension "plpgsql"
   enable_extension "postgis"
 
+  create_table "avalanche_forecast_zones", force: true do |t|
+    t.string  "name"
+    t.string  "zone_url"
+    t.string  "url"
+    t.spatial "the_geom", limit: {:srid=>0, :type=>"multi_polygon"}
+  end
+
   create_table "ski_places", force: true do |t|
     t.string   "name"
     t.text     "description"
@@ -25,13 +32,6 @@ ActiveRecord::Schema.define(version: 20141006053852) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.spatial  "geometry",                limit: {:srid=>0, :type=>"geometry"}
-  end
-
-  create_table "ski_places_avalanche_forecast_zone", force: true do |t|
-    t.text    "description"
-    t.string  "snotel_token"
-    t.string  "avalanche_forecast_zone"
-    t.spatial "geometry",                limit: {:srid=>0, :type=>"geometry"}
   end
 
 end
