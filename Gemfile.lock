@@ -145,6 +145,7 @@ GEM
     rake (10.3.2)
     rdoc (4.1.2)
       json (~> 1.4)
+    redis (3.0.6)
     refills (0.0.2)
     request_store (1.1.0)
     rgeo (0.3.20)
@@ -252,6 +253,7 @@ DEPENDENCIES
   poltergeist
   pry
   rails (= 4.1.4)
+  redis
   refills
   rgeo
   rgeo-activerecord

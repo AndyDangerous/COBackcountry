@@ -45,6 +45,8 @@ gem 'unicorn'
 # Use Gon to access variables in js in views
 gem 'gon'
 
+gem 'redis'
+
 # Geospatial gems
 gem 'georuby'
 gem 'rgeo'
