@@ -46,7 +46,6 @@ gem 'unicorn'
 gem 'gon'
 
 # Geospatial gems
-gem 'georuby' 
 gem 'rgeo'
 gem 'rgeo-geojson'
 gem 'rgeo-activerecord'
