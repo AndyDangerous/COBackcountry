@@ -34,8 +34,6 @@ class SkiPlacesController < ApplicationController
 
   def update_params(columns)
     ski_geom = GpxParser.parse(columns[:geometry])
-    binding.pry
-
     feature = RGeo::GeoJSON.decode(ski_geom, json_parser: :json)
 
     if feature.respond_to?(:geometry)
