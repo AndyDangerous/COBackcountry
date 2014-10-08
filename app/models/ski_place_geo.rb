@@ -22,30 +22,12 @@ class SkiPlaceGeo
   end
 
   def self.find_snotel(ski_place)
-    # SkiPlaceGeo.find_snotel(self)
+    p = ski_place.centroid
+    snotels = SnotelStation.all
+
+    ski_place.snotel_station_id = snotels.sort_by do |station|
+       station.the_geom.distance(p.geometry)
+    end.first.id
+    ski_place.save
   end
 end
-
-
-
-#   def self.find_avalanche_forecast_zone(ski_place)
-#     point = ski_place.centroid
-#     polygons = AvalancheForecastZone.all
-#
-#     array = []
-#
-#     polygons.each do |polygon|
-#       query = "SELECT ST_Within(ST_GeomFromText('#{point.as_text}'),ST_GeomFromText('#{polygon.the_geom.as_text}'))" # probably this isn't the right way to query
-#       result = ActiveRecord::Base.connection.execute query
-#       array << result[0].values.first
-#     end
-#
-#     ski_place.avalanche_forecast_zone_id = array.find_index("t") + 1
-#     ski_place.save
-#   end
-#
-#   def self.find_snotel(ski_place)
-#
-#   end
-#
-# end
