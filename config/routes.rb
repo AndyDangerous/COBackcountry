@@ -2,8 +2,8 @@ Rails.application.routes.draw do
   root 'static_pages#index'
 
   resources :ski_places
-  resources :avalanche_forecast_zones, only: [:index]
-  resources :snotel_stations, only: [:index]
+  resources :avalanche_forecast_zones, only: [:index, :show]
+  resources :snotel_stations, only: [:index, :show]
 
   get '/resources' => 'static_pages#resources'
   get '/safety' => 'static_pages#safety'
