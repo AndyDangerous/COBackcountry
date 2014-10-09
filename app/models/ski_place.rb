@@ -4,12 +4,26 @@ class SkiPlace < ActiveRecord::Base
 
   self.rgeo_factory_generator = RGeo::Geos.factory_generator
 
+  before_save :load_up
 
-    # Pull this out into module or PORO
-    # SnotelStation.retrieve(self.token)
+  def load_up
+    # background job:
+    find_centroid
+    find_avy_zone
+    find_snotel
+  end
 
-  # background job:
-  # find centroid
-  # find_avalanch_forecast zone
-  # find snotel
+  def find_centroid
+    SkiPlaceGeo.find_centroid(self)
+  end
+
+  def find_avy_zone
+    SkiPlaceGeo.find_avalanche_forecast_zone(self)
+  end
+
+  def find_snotel
+    SkiPlaceGeo.find_snotel(self)
+  end
+
+
 end
