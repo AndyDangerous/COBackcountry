@@ -24,7 +24,7 @@ end
   SnotelStation.set_rgeo_factory_for_column(:the_geom, RGeo::Geographic.spherical_factory(srid: 4326))
   lat = station[:latitude]
   lon = station[:longitude]
-  point = RGeo::Geographic.spherical_factory(:srid => 4326).point(lat, lon)
+  point = RGeo::Geographic.spherical_factory(:srid => 4326).point(lon, lat)
 
   SnotelStation.create(elevation: station[:elevation],
                         the_geom: point,
