@@ -1,8 +1,8 @@
 var $;
 
-$ = jQuery;
+$  = jQuery;
 $(document).on("ready page:load", function(){
-  var map, geojsonLayer, geojsonUrl
+  var map, geojsonUrl, geojsonLayer
   map = L.map('map').setView([39, -106], 7);
 
   L.tileLayer('http://{s}.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.png', {
@@ -10,9 +10,11 @@ $(document).on("ready page:load", function(){
     subdomains: ['otile1', 'otile2', 'otile3', 'otile4'],
     maxZoom: 18
   }).addTo(map);
+debugger
+  geojsonLayer = L.geoJSON().addTo(map);
 
-  geojsonUrl = "snotel_stations/2.jsonx ";
-  geojsonLayer = L.GeoJSON().addTo(map);
+  geojsonUrl = "./avalanche_forecast_zones/3.json";
+
   geojsonLayer.addData(geojsonUrl);
 
 })
