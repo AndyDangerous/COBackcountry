@@ -1,5 +1,5 @@
 #section{
-  
+
   .small-map {
     height: 600px;
     @include span-columns(6);
@@ -14,6 +14,10 @@
 
 .big-map {
   height: 800px;
+}
+
+.map-wrapper {
+  @include outer-container;
   @include clearfix;
   position: relative;
   z-index: 9999;
