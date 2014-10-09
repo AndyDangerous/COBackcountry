@@ -1,21 +1,29 @@
-
+<br>
 <div id="section">
-  <div id="map" class='small-map'>
+  <div id="map" class='small-map'></div>
 
-  </div>
-
-  <div id="article">
-    <h2> <%= @ski_place.name %> </h2>
-
-    <div id="snotel">
-      <%= render partial: "snotel", locals: {ski_place: @ski_place} %>
+  <div id="article" class="ski-place-information">
+    <div id="name" class="info-header">
+      <h2 class="name"> <%= @ski_place.name %> </h2>
+      <%= link_to "Back", root_path, class: "button" %>
     </div>
 
-    <div id="description">
+    <div id="external-data" class="external-data">
+      <div id="avalanche" class="avy-info">
+        <h5>Current Avalanche Forecast</h5>
+      </div>
+
+      <div id="snotel" class="snotel-info">
+        <div id="snotel">
+          <%= render partial: "snotel", locals: {ski_place: @ski_place} %>
+        </div>
+      </div>
+    </div>
+
+    <div id="description" class="full-width">
       <h4>Description</h4>
       <%= @ski_place.description %>
     </div>
 
-    <%= link_to "Back", root_path %>
   </div>
 </div>

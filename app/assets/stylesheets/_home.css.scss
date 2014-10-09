@@ -1,5 +1,46 @@
+#section{
+  @include outer-container;
 
 
+  .small-map {
+    @include span-columns(6);
+    height: 600px;
+  }
+
+  .ski-place-information{
+    @include span-columns(6);
+    @include linear-gradient(to top, gray);
+    @include clearfix;
+    position: relative;
+    z-index: 9999;
+  }
+
+  .external-data{
+
+
+    .avy-info{
+      @include span-columns(6);
+      height: 180px;
+    }
+
+    .snotel-info{
+      @include span-columns(6);
+    }
+  }
+
+  .full-width{
+    @include span-columns(12);
+  }
+}
+
+.info-header{
+  .name{
+    @include span-columns(6);
+  }
+  .button{
+    @include span-columns(3);
+  }
+}
 
 .big-map {
   height: 800px;
@@ -10,4 +51,21 @@
   @include clearfix;
   position: relative;
   z-index: 9999;
+}
+
+
+$navigation-nav-button-background: $base-accent-color;
+$navigation-nav-button-border: 1px solid;
+a.button {
+  margin-top: 13px;
+  float: right;
+  @include transition (all 0.2s ease-in-out);
+  display: inline;
+  background: $navigation-nav-button-background;
+  border-radius: $base-border-radius;
+  color: white;
+  font-size: .8em;
+  font-weight: 800;
+  padding: .4em 1em;
+  text-transform: uppercase;
 }
