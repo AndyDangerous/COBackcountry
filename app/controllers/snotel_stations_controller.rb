@@ -6,13 +6,14 @@ class SnotelStationsController < ApplicationController
     @stations = SnotelStation.all
 
     @stations.each do |station|
-    @station = RGeo::GeoJSON.encode(factory.feature(@station.the_geom, nil,
-                        {name:      @station.name,
-                         timezone:  @station.timezone,
-                         elevation: @station.elevation,
-                         wind:      @station.wind,
-                         triplet:   @station.triplet}))
-    respond_with @stations
+      @station = RGeo::GeoJSON.encode(factory.feature(@station.the_geom, nil,
+                          {name:      @station.name,
+                           timezone:  @station.timezone,
+                           elevation: @station.elevation,
+                           wind:      @station.wind,
+                           triplet:   @station.triplet}))
+      respond_with @stations
+    end
   end
 
   def show
