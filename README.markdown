@@ -13,6 +13,9 @@ Resources:
 * MAPS:
 * http://stackoverflow.com/questions/21366605/how-to-get-all-the-points-of-a-google-maps-polygon-and-is-it-possible-to-restric
 
+* RAILSMAPS
+* http://vladigleba.com/blog/2013/11/14/using-mapbox-with-ruby-on-rails/
+
 
 BigAss Project Iteration Planning
 
@@ -73,7 +76,7 @@ BigAss Project Iteration Planning
     * closest SNOTEL site
     * avalanche forecast zone
 * Oh Noes! Emergency!:
-  * 
+  *
 
 
 

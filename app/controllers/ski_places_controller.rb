@@ -1,6 +1,3 @@
-require 'geo_ruby/gpx4r/gpx'
-require 'geo_ruby/geojson'
-
 class SkiPlacesController < ApplicationController
 
 
