@@ -11,7 +11,7 @@ $(document).on("ready page:load", function(){
     maxZoom: 18
   }).addTo(map);
 
-  geojsonUrl = "snotel_stations/2.jsonx ";
+  geojsonUrl = "snotel_stations/2.json";
   geojsonLayer = L.GeoJSON().addTo(map);
   geojsonLayer.addData(geojsonUrl);
 
