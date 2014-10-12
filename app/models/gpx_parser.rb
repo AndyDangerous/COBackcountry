@@ -1,7 +1,7 @@
 class GpxParser
 
   def self.parse(file_thing)
-    @name = file_thing.original_filename
+    # @name = file_thing.original_filename
     @gpx = file_thing.tempfile
     parse_file
   end
