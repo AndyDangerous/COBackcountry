@@ -1,10 +1,16 @@
 class SkiPlace < ActiveRecord::Base
+  validates :name,
+            :description, presence: true
+
   belongs_to :snotel_station
   belongs_to :avalanche_forecast_zone
 
   self.rgeo_factory_generator = RGeo::Geos.factory_generator
+  SkiPlace.set_rgeo_factory_for_column(:geometry, RGeo::Geographic.spherical_factory(srid: 4326))
 
-  before_save :load_up
+
+
+  # before_save :load_up
 
   def load_up
     # background job:
