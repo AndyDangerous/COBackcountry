@@ -16,7 +16,7 @@ var numberOfGeometries = gon.numberOfGeometries || 1;
 for (var i = 1; i <= numberOfGeometries; i++) {
     var counter = gon.counter || i;
 
-    geojsonUrl = "api/v1/"+ gon.geometry_url +"/"+ counter +".json";
+    geojsonUrl = "/api/v1/"+ gon.geometry_url +"/"+ counter +".json";
     $.getJSON(geojsonUrl, function(data){
       console.log("success")
       L.geoJson(data, {
@@ -25,7 +25,9 @@ for (var i = 1; i <= numberOfGeometries; i++) {
         },
 
         onEachFeature: function (feature, layer) {
-            layer.bindPopup(feature.properties);
+            layer.bindPopup(
+					  '<a href="/ski_places/'+ feature.properties.id +'"> '+ feature.properties.name +'</a>'
+					  );
         }
       }).addTo(map);
       })
