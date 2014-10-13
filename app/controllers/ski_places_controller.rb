@@ -21,7 +21,7 @@ class SkiPlacesController < ApplicationController
     # factory = RGeo::GeoJSON::EntityFactory.instance
     # gon.geometries = RGeo::GeoJSON.encode(factory.feature(@ski_place.geometry, nil, {name: "#{@ski_place.name}", id: "#{@ski_place.id}"}))
     gon.geometry_url = "ski_places"
-    gon.numberOfGeometries = 1
+    # gon.numberOfGeometries = 1
     gon.counter = params[:id]
   end
 

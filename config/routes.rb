@@ -16,6 +16,8 @@ Rails.application.routes.draw do
     end
   end
 
+  get '/ski_places/api/v1/ski_places/:id.json' => 'ski_places#show' 
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.

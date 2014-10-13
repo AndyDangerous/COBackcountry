@@ -12,9 +12,7 @@ $(document).on("ready page:load", function(){
     maxZoom: 14
   }).addTo(map);
 
-// var numberOfGeometries = gon.geometries.length;
 var numberOfGeometries = gon.numberOfGeometries || 1;
-// var arrayLength = geometriesArray.length;
 for (var i = 1; i <= numberOfGeometries; i++) {
     var counter = gon.counter || i;
 
@@ -22,19 +20,15 @@ for (var i = 1; i <= numberOfGeometries; i++) {
     $.getJSON(geojsonUrl, function(data){
       console.log("success")
       L.geoJson(data, {
-        // style: function (feature) {
-        //     return {color: "red"};
-        // },
+        style: function (feature) {
+            return {color: "red", radius: 5};
+        },
+
         onEachFeature: function (feature, layer) {
-            layer.bindPopup(feature.properties.url);
+            layer.bindPopup(feature.properties);
         }
       }).addTo(map);
       })
 }
-
-  //geojsonLayer = L.geoJson.addTo(map);
-  // geojsonLayer.addData(geojsonUrl);
-
-
 
 })
