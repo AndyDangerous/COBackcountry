@@ -12,12 +12,13 @@ $(document).on("ready page:load", function(){
     maxZoom: 14
   }).addTo(map);
 
-var geometriesArray = gon.geometries;
-var arrayLength = geometriesArray.length;
-for (var i = 1; i < arrayLength; i++) {
-    alert(geometriesArray[i]);
+// var numberOfGeometries = gon.geometries.length;
+var numberOfGeometries = gon.numberOfGeometries || 1;
+// var arrayLength = geometriesArray.length;
+for (var i = 1; i <= numberOfGeometries; i++) {
+    var counter = gon.counter || i;
 
-    geojsonUrl = "api/v1/"+ gon.geometry_url +"/"+ i +".json";
+    geojsonUrl = "api/v1/"+ gon.geometry_url +"/"+ counter +".json";
     $.getJSON(geojsonUrl, function(data){
       console.log("success")
       L.geoJson(data, {
