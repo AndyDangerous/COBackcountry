@@ -12,7 +12,7 @@ $(document).on("ready page:load", function(){
     maxZoom: 14
   }).addTo(map);
 
-  mahLayer = L.layerGroup();
+  mahLayer = L.featureGroup();
 
 var numberOfGeometries = gon.numberOfGeometries || 1;
 for (var i = 1; i <= numberOfGeometries; i++) {
@@ -35,6 +35,9 @@ for (var i = 1; i <= numberOfGeometries; i++) {
           }).addTo(mahLayer);
       });
 }
+
 mahLayer.addTo(map);
+var bounds = mahLayer.getBounds();
+map.fitBounds(bounds);
 
 })

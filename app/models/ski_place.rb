@@ -8,9 +8,17 @@ class SkiPlace < ActiveRecord::Base
   self.rgeo_factory_generator = RGeo::Geos.factory_generator
   SkiPlace.set_rgeo_factory_for_column(:geometry, RGeo::Geographic.spherical_factory(srid: 4326))
 
+  # after_create :load_up
 
+  def self.create(data)
+    sp = super
+    sp.load_up
+  end
 
-  # before_save :load_up
+  # def self.create_and_load(data)
+  #   sp = create(data)
+  #   sp.load_up
+  # end
 
   def load_up
     # background job:
@@ -20,15 +28,18 @@ class SkiPlace < ActiveRecord::Base
   end
 
   def find_centroid
-    SkiPlaceGeo.find_centroid(self)
+    self.centroid = SkiPlaceGeo.find_centroid(self)
+    self.save
   end
 
   def find_avy_zone
-    SkiPlaceGeo.find_avalanche_forecast_zone(self)
+    self.avalanche_forecast_zone_id = SkiPlaceGeo.find_avalanche_forecast_zone(self)
+    self.save
   end
 
   def find_snotel
-    SkiPlaceGeo.find_snotel(self)
+    self.snotel_station_id = SkiPlaceGeo.find_snotel(self)
+    self.save
   end
 
 

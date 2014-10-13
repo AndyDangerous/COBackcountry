@@ -1,3 +1,5 @@
+require 'resque/server'
+
 Rails.application.routes.draw do
   root 'static_pages#index'
 
@@ -15,6 +17,8 @@ Rails.application.routes.draw do
       resources :ski_places, only: [:index, :show]
     end
   end
+
+  mount Resque::Server.new, at: "/resque"
 
 
 

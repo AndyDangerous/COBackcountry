@@ -8,6 +8,8 @@ class SkiPlacesController < ApplicationController
   def create
     @ski_place = SkiPlace.new(ski_place_params)
     if @ski_place.save
+      Resque.enqueue(Sleeper, 5)
+      # sleep(5)
       # background_worker for geoprocessing
       flash[:notice] = "Your route has been added to the map. It should update momentarily."
       redirect_to root_path
