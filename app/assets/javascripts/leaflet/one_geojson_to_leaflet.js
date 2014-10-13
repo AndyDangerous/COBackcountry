@@ -1,6 +1,7 @@
 var $;
 
 $ = jQuery;
+
 $(document).on("ready page:load", function(){
   var map, geojsonLayer, geojsonUrl
   map = L.map('map').setView([39, -106], 7);
@@ -11,23 +12,28 @@ $(document).on("ready page:load", function(){
     maxZoom: 14
   }).addTo(map);
 
-  debugger
+var geometriesArray = gon.geometries;
+var arrayLength = geometriesArray.length;
+for (var i = 1; i < arrayLength; i++) {
+    alert(geometriesArray[i]);
 
-  geojsonUrl = "snotel_stations/2.json";
-  geojsonLayer = L.geoJson.addTo(map);
-  geojsonLayer.addData(geojsonUrl);
+    geojsonUrl = "api/v1/"+ gon.geometry_url +"/"+ i +".json";
+    $.getJSON(geojsonUrl, function(data){
+      console.log("success")
+      L.geoJson(data, {
+        // style: function (feature) {
+        //     return {color: "red"};
+        // },
+        onEachFeature: function (feature, layer) {
+            layer.bindPopup(feature.properties.url);
+        }
+      }).addTo(map);
+      })
+}
+
+  //geojsonLayer = L.geoJson.addTo(map);
+  // geojsonLayer.addData(geojsonUrl);
+
+
 
 })
-
-
-// $.getJSON( "snotel_stations/2.json", function( data ) {
-//   var items = [];
-//   $.each( data, function( key, val ) {
-//     items.push( "<li id='" + key + "'>" + val + "</li>" );
-//   });
-//
-//   $( "<ul/>", {
-//     "class": "my-new-list",
-//     html: items.join( "" )
-//   }).appendTo( "body" );
-// });

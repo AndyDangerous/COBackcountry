@@ -19,7 +19,8 @@ class SkiPlacesController < ApplicationController
   def show
     @ski_place = SkiPlace.find(params[:id])
     factory = RGeo::GeoJSON::EntityFactory.instance
-    gon.ski_place = RGeo::GeoJSON.encode(factory.feature(@ski_place.geometry, nil, {name: "#{@ski_place.name}", id: "#{@ski_place.id}"}))
+    gon.geometries = RGeo::GeoJSON.encode(factory.feature(@ski_place.geometry, nil, {name: "#{@ski_place.name}", id: "#{@ski_place.id}"}))
+    gon.geometry_url = "ski_places"
   end
 
   def ski_place_params

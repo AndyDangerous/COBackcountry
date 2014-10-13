@@ -2,7 +2,6 @@ class SkiPlaceGeo
   def self.find_centroid(ski_place)
     SkiPlace.set_rgeo_factory_for_column(:centroid, RGeo::Geographic.spherical_factory(srid: 4326))
         geometry = ski_place.geometry
-        # binding.pry
 
         query = "SELECT ST_AsText(ST_Centroid('#{geometry.as_text}'))"
         result = ActiveRecord::Base.connection.execute query
