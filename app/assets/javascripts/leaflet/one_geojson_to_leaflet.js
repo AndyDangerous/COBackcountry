@@ -3,7 +3,7 @@ var $;
 $ = jQuery;
 
 $(document).on("ready page:load", function(){
-  var map, geojsonLayer, geojsonUrl
+  var map, geojsonLayer, geojsonUrl, mahLayer
   map = L.map('map').setView([39, -106], 7);
 
   L.tileLayer('http://{s}.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.png', {
@@ -12,25 +12,29 @@ $(document).on("ready page:load", function(){
     maxZoom: 14
   }).addTo(map);
 
+  mahLayer = L.layerGroup();
+
 var numberOfGeometries = gon.numberOfGeometries || 1;
 for (var i = 1; i <= numberOfGeometries; i++) {
     var counter = gon.counter || i;
 
     geojsonUrl = "/api/v1/"+ gon.geometry_url +"/"+ counter +".json";
-    $.getJSON(geojsonUrl, function(data){
-      console.log("success")
-      L.geoJson(data, {
-        style: function (feature) {
-            return {color: "red", radius: 5};
-        },
 
-        onEachFeature: function (feature, layer) {
-            layer.bindPopup(
-					  '<a href="/ski_places/'+ feature.properties.id +'"> '+ feature.properties.name +'</a>'
-					  );
-        }
-      }).addTo(map);
-      })
+      $.getJSON(geojsonUrl, function(data){
+        console.log("success")
+          L.geoJson(data, {
+            style: function (feature) {
+                return {color: "red", radius: 5};
+            },
+
+            onEachFeature: function (feature, layer) {
+                layer.bindPopup(
+    					  '<a href="/ski_places/'+ feature.properties.id +'"> '+ feature.properties.name +'</a>'
+    					  );
+            }
+          }).addTo(mahLayer);
+      });
 }
+mahLayer.addTo(map);
 
 })
