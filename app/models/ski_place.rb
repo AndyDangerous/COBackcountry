@@ -10,7 +10,7 @@ class SkiPlace < ActiveRecord::Base
 
 
 
-  # before_save :load_up
+  after_create :load_up
 
   def load_up
     # background job:
