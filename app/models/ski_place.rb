@@ -6,13 +6,13 @@ class SkiPlace < ActiveRecord::Base
   belongs_to :avalanche_forecast_zone
 
   self.rgeo_factory_generator = RGeo::Geos.factory_generator
-  SkiPlace.set_rgeo_factory_for_column(:geometry, RGeo::Geographic.spherical_factory(srid: 4326))
+  self.set_rgeo_factory_for_column(:geometry, RGeo::Geographic.spherical_factory(srid: 4326))
 
   after_create :load_up
 
   def load_up
     # GeoWorker.perform_async(self.id)
-    
+
     GeoWorker.new.perform(self.id)
   end
 
