@@ -36,5 +36,7 @@ for (var i = 1; i <= numberOfGeometries; i++) {
       });
 }
 mahLayer.addTo(map);
+bounds = mahLayer.getBounds();
+map.setBounds(bounds);
 
 })
