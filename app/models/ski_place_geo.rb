@@ -15,10 +15,8 @@ class SkiPlaceGeo
     zones = AvalancheForecastZone.all
 
     facts = zones.map do |zone|
-      # zone.the_geom.intersects?(centroid)
       centroid.within?(zone.the_geom)
     end
-    binding.pry
     ski_place.avalanche_forecast_zone_id = facts.find_index(true) + 1
     ski_place.save
   end
