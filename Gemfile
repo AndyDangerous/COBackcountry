@@ -60,6 +60,8 @@ gem 'squeel'
 # Snow Gems
 gem 'snotel'
 
+gem 'sidekiq'
+
 group :development, :test do
   gem 'rspec-rails'
   gem 'pry'
