@@ -1,0 +1,3 @@
+class AvalancheForecastZonesController < ApplicationController
+
+end

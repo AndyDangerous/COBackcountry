@@ -11,20 +11,39 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141003032852) do
+ActiveRecord::Schema.define(version: 20141007041858) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "postgis"
 
+  create_table "avalanche_forecast_zones", force: true do |t|
+    t.spatial "the_geom", limit: {:srid=>4326, :type=>"multi_polygon", :geographic=>true}
+    t.string  "name"
+    t.string  "zone_url"
+    t.string  "url"
+  end
+
   create_table "ski_places", force: true do |t|
     t.string   "name"
+    t.spatial  "geometry",                   limit: {:srid=>4326, :type=>"geometry", :geographic=>true}
+    t.spatial  "centroid",                   limit: {:srid=>4326, :type=>"point", :geographic=>true}
     t.text     "description"
-    t.string   "snotel_token"
-    t.string   "avalanche_forecast_zone"
+    t.string   "snotel_station_id"
+    t.string   "avalanche_forecast_zone_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.spatial  "geometry",                limit: {:srid=>0, :type=>"geometry"}
+  end
+
+  create_table "snotel_stations", force: true do |t|
+    t.spatial  "the_geom",   limit: {:srid=>4326, :type=>"point", :geographic=>true}
+    t.integer  "elevation"
+    t.text     "name"
+    t.integer  "timezone"
+    t.string   "triplet"
+    t.string   "wind"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|

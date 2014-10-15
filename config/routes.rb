@@ -3,7 +3,6 @@ Rails.application.routes.draw do
 
   resources :ski_places
 
-  get '/bs_css_test' => 'static_pages#bs_css_test'
   get '/resources' => 'static_pages#resources'
   get '/safety' => 'static_pages#safety'
   get '/about' => 'static_pages#about'
@@ -12,6 +11,16 @@ Rails.application.routes.draw do
   match 'auth/:provider/callback', to: 'sessions#create', via: "get"
   match 'auth/failure', to: redirect('/'),   via: "get"
   match 'signout', to: 'sessions#destroy', via: "get"
+
+  namespace :api do
+    namespace :v1 do
+      resources :avalanche_forecast_zones, only: [:index, :show]
+      resources :snotel_stations, only: [:index, :show]
+      resources :ski_places, only: [:index, :show]
+    end
+  end
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
 
