@@ -13,7 +13,6 @@ class SkiPlaceGeo
   def self.find_avalanche_forecast_zone(ski_place)
     centroid = ski_place.centroid
     zones = AvalancheForecastZone.all
-    binding.pry
     facts = zones.map do |zone|
       centroid.within?(zone.the_geom)
     end
