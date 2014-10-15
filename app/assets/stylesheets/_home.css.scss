@@ -8,6 +8,7 @@
   }
 
   .ski-place-information{
+    padding: 15px;
     @include span-columns(6);
     @include linear-gradient(to top, gray);
     @include clearfix;
@@ -16,7 +17,6 @@
   }
 
   .external-data{
-
 
     .avy-info{
       @include span-columns(6);
