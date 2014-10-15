@@ -9,15 +9,18 @@ class SkiPlace < ActiveRecord::Base
   SkiPlace.set_rgeo_factory_for_column(:geometry, RGeo::Geographic.spherical_factory(srid: 4326))
 
 
-
   after_create :load_up
 
   def load_up
-    # background job:
-    find_centroid
-    find_avy_zone
-    find_snotel
+    GeoWorker.perform_async(self.id)
   end
+
+  # def load_up
+  #   # background job:
+  #   find_centroid
+  #   find_avy_zone
+  #   find_snotel
+  # end
 
   def find_centroid
     SkiPlaceGeo.find_centroid(self)
