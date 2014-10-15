@@ -6,13 +6,31 @@ class SkiPlace < ActiveRecord::Base
   belongs_to :avalanche_forecast_zone
 
   self.rgeo_factory_generator = RGeo::Geos.factory_generator
+<<<<<<< HEAD
   self.set_rgeo_factory_for_column(:geometry, RGeo::Geographic.spherical_factory(srid: 4326))
 
+||||||| merged common ancestors
+  SkiPlace.set_rgeo_factory_for_column(:geometry, RGeo::Geographic.spherical_factory(srid: 4326))
+
+
+
+=======
+  SkiPlace.set_rgeo_factory_for_column(:geometry, RGeo::Geographic.spherical_factory(srid: 4326))
+
+
+>>>>>>> 58c15ea456171375f3e5e60410c2e1693e7e58d5
   after_create :load_up
 
   def load_up
     GeoWorker.perform_async(self.id)
   end
+
+  # def load_up
+  #   # background job:
+  #   find_centroid
+  #   find_avy_zone
+  #   find_snotel
+  # end
 
   def find_centroid
     SkiPlaceGeo.find_centroid(self)
