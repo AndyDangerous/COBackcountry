@@ -1,7 +1,7 @@
 class SkiPlaceGeo
   def self.find_centroid(ski_place)
-    SkiPlace.set_rgeo_factory_for_column(:centroid, RGeo::Geographic.spherical_factory(srid: 4326))
-    geometry = ski_place.geometry
+    SkiPlace.set_rgeo_factory_for_column(:centroid, RGeo::Geos.factory(srid: 4326))
+        geometry = ski_place.geometry
 
     query = "SELECT ST_AsText(ST_Centroid('#{geometry.as_text}'))"
     result = ActiveRecord::Base.connection.execute query
@@ -15,7 +15,7 @@ class SkiPlaceGeo
     zones = AvalancheForecastZone.all
     binding.pry
     facts = zones.map do |zone|
-      zone.the_geom.intersects?(centroid)
+      centroid.within?(zone.the_geom)
     end
     ski_place.avalanche_forecast_zone_id = facts.find_index(true) + 1
     ski_place.save

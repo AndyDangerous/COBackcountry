@@ -11,9 +11,7 @@ class SkiPlace < ActiveRecord::Base
   after_create :load_up
 
   def load_up
-    # GeoWorker.perform_async(self.id)
-
-    GeoWorker.new.perform(self.id)
+    GeoWorker.perform_async(self.id)
   end
 
   def find_centroid
@@ -27,6 +25,4 @@ class SkiPlace < ActiveRecord::Base
   def find_snotel
     SkiPlaceGeo.find_snotel(self)
   end
-
-
 end
