@@ -14,13 +14,6 @@ class SkiPlace < ActiveRecord::Base
     GeoWorker.perform_async(self.id)
   end
 
-  # def load_up
-  #   # background job:
-  #   find_centroid
-  #   find_avy_zone
-  #   find_snotel
-  # end
-
   def find_centroid
     SkiPlaceGeo.find_centroid(self)
   end
