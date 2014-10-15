@@ -31,6 +31,11 @@
   .full-width{
     @include span-columns(12);
   }
+
+  .new-place-img{
+    @include span-columns(6);
+    max-width: 500px;
+  }
 }
 
 .info-header{

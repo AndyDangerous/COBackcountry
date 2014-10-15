@@ -18,7 +18,6 @@ RSpec.describe SkiPlace, type: :model do
 
   context "loading" do
     xit "can find its centroid" do
-
     end
 
     xit "can find its avy zone id" do
