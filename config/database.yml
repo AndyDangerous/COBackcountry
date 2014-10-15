@@ -9,6 +9,8 @@ default: &default
   pool: 5
   timeout: 5000
   schema_search_path: "public,postgis"
+  username: deployment
+  password: <%= ENV["PGIS_PWD"] %>
 
 development:
   <<: *default
