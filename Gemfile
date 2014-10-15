@@ -42,6 +42,9 @@ gem 'refills'
 # Use unicorn as the app server
 gem 'unicorn'
 
+# Use Paperclip for image management
+gem 'paperclip', "~> 4.2"
+
 # Use Gon to access variables in js in views
 gem 'gon'
 
