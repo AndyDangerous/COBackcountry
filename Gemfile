@@ -60,15 +60,8 @@ gem 'squeel'
 # Snow Gems
 gem 'snotel'
 
-<<<<<<< HEAD
-
 gem 'sidekiq'
 
-||||||| merged common ancestors
-=======
-gem 'sidekiq'
-
->>>>>>> 58c15ea456171375f3e5e60410c2e1693e7e58d5
 group :development, :test do
   gem 'rspec-rails'
   gem 'pry'
