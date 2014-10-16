@@ -12,9 +12,7 @@ RSpec.describe SkiPlace, type: :model do
 
   it { should validate_presence_of(:name) }
 
-  it { should validate_presence_of(:name) }
-
-  it { should validate_presence_of(:name) }
+  it { should validate_presence_of(:description) }
 
   context "loading" do
     xit "can find its centroid" do
