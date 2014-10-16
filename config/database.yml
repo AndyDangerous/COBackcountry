@@ -24,3 +24,5 @@ test:
 production:
   <<: *default
   database: cobackcountry_production
+  username: deployment
+  password: <%= ENV["PGIS_PWD"] %>

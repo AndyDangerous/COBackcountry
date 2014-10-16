@@ -1,3 +1,7 @@
+.bg-img {
+  @include background-image(url("http://s3-us-west-1.amazonaws.com/cobackcountry/blue_cont.min.svg"));
+}
+
 #section{
   @include outer-container;
 
@@ -8,15 +12,15 @@
   }
 
   .ski-place-information{
+    padding: 15px;
     @include span-columns(6);
-    @include linear-gradient(to top, gray);
+    @include linear-gradient(to top, #828282);
     @include clearfix;
     position: relative;
     z-index: 9999;
   }
 
   .external-data{
-
 
     .avy-info{
       @include span-columns(6);
@@ -30,6 +34,11 @@
 
   .full-width{
     @include span-columns(12);
+  }
+
+  .new-place-img{
+    @include span-columns(6);
+    max-width: 500px;
   }
 }
 

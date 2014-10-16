@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
+
   root 'static_pages#index'
 
   resources :ski_places
+  resources :users
 
   get '/resources' => 'static_pages#resources'
   get '/safety' => 'static_pages#safety'

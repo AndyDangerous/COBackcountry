@@ -7,4 +7,8 @@ class User < ActiveRecord::Base
       user.save!
     end
   end
+
+  has_many :ski_places
+
+  validates :name, :email, presence: true
 end

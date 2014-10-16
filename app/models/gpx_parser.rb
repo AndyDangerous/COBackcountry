@@ -8,7 +8,7 @@ class GpxParser
 
   def self.parse_file
     data = @gpx.read
-    @file_mode = data =~ /trkpt/ ? "//trkpt" : (data =~ /wpt/ ? "//wpt" : "//rtept")
+    @file_mode = data =~ /trkpt/ ? "//trkpt" : (data =~ /rtept/ ? "//rtept" : "//wpt")
 
     geo_json = '{"type": "Feature", "geometry": {"type": "MultiLineString","coordinates": [['
     Nokogiri.HTML(data).search(@file_mode).each do |tp|

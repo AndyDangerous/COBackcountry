@@ -17,15 +17,12 @@ class SkiPlacesController < ApplicationController
 
   def show
     @ski_place = SkiPlace.find(params[:id])
-    # factory = RGeo::GeoJSON::EntityFactory.instance
-    # gon.geometries = RGeo::GeoJSON.encode(factory.feature(@ski_place.geometry, nil, {name: "#{@ski_place.name}", id: "#{@ski_place.id}"}))
     gon.geometry_url = "ski_places"
-    # gon.numberOfGeometries = 1
     gon.counter = params[:id]
   end
 
   def ski_place_params
-    safe_params = params.require(:ski_place).permit(:name, :description, :geometry)
+    safe_params = params.require(:ski_place).permit(:name, :description, :geometry, :image)
     clean_params(safe_params)
   end
 
