@@ -11,11 +11,13 @@
     <div id="external-data" class="external-data">
       <div id="avalanche" class="avy-info">
         <h5>Current Avalanche Forecast</h5>
+        <h6><%= link_to @ski_place.avalanche_forecast_zone.name,
+        @ski_place.avalanche_forecast_zone.url %></h6>
       </div>
 
       <div id="snotel" class="snotel-info">
         <div id="snotel">
-          <%= render partial: "snotel", locals: {ski_place: @ski_place} %>
+          <%= render partial: "snotel", locals: { ski_place: @ski_place } %>
         </div>
       </div>
     </div>
@@ -30,3 +32,6 @@
     </div>
   </div>
 </div>
+<script charset="utf-8">
+  $('#contentDiv').load('+ '<%= @ski_place.avalanche_forecast_zone.url %> '+' #avalanche-forecast');
+</script>

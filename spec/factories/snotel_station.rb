@@ -5,6 +5,7 @@ FactoryGirl.define do
     wind "f"
     elevation 10960
     timezone -7
+    id 141
     # geometry "POINT (-105.604107722 40.2477081249)"
   end
 end
