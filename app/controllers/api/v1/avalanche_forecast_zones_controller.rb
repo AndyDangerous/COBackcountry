@@ -12,6 +12,7 @@ class Api::V1::AvalancheForecastZonesController < ApplicationController
   end
 
   def show
+    zone = AvalancheForecastZone.find(params[:id])
     zone = encode(zone)
     respond_with zone
   end
