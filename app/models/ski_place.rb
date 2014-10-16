@@ -5,7 +5,8 @@ class SkiPlace < ActiveRecord::Base
   belongs_to :snotel_station
   belongs_to :avalanche_forecast_zone
 
-  has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "100x100>" }, 
+  has_attached_file :image,
+                    :styles => { :medium => "300x300>", :thumb => "100x100>" },
                     default_url: "http://s3-us-west-1.amazonaws.com/cobackcountry/DSCF3415.jpg",
                    	s3_credentials: { :access_key_id => ENV['S3_KEY'],
 															  			:secret_access_key => ENV['S3_SECRET']},
@@ -25,7 +26,7 @@ class SkiPlace < ActiveRecord::Base
     SkiPlaceGeo.find_centroid(self)
   end
 
-  def find_avy_zone
+  def find_avalanche_forecast_zone
     SkiPlaceGeo.find_avalanche_forecast_zone(self)
   end
 

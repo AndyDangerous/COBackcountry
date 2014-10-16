@@ -2,6 +2,7 @@ class GeoWorker
   include Sidekiq::Worker
 
   def perform(ski_place_id)
+    sleep(3)
     @ski_place = SkiPlace.find(ski_place_id)
 
     @ski_place.find_centroid
