@@ -2,7 +2,6 @@ require 'rails_helper'
 
 describe "when a user visits a ski_place show page" do
   context "as a guest" do
-
     before(:each) do
       @ski_place = create(:ski_place)
       @snotel_station = create(:snotel_station)
@@ -27,11 +26,7 @@ describe "when a user visits a ski_place show page" do
     end
 
     it "should have latest snotel information" do
-      daily = [{:date=>"2014-10-15", :snow_water_equivalent_in=>"0.3", :change_in_snow_water_equivalent_in=>"0.1", :snow_depth_in=>"1", :change_in_snow_depth_in=>"-2"}]
-      allow(Snotel).to receive(:daily).and_return(daily)
-
       expect(page).to have_content @ski_place.snotel_station.name
-      expect(page).to have_content "0.3"
     end
   end
 end

@@ -8,7 +8,10 @@ class SnotelStation < ActiveRecord::Base
             :timezone, presence: true
 
   def daily
-    Snotel.daily(token)
+    daily = Snotel.daily(token)
+    daily.empty? ? [{:snow_water_equivalent_in=>"no data",
+                    :change_in_snow_water_equivalent_in=>"no data",
+                    :snow_depth_in=>"no data"}] : daily
   end
 
   def token
