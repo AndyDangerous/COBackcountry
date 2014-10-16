@@ -2,26 +2,25 @@ class Api::V1::AvalancheForecastZonesController < ApplicationController
   respond_to :json
 
   def index
-    factory = RGeo::GeoJSON::EntityFactory.instance
-    @zones = AvalancheForecastZone.all
+    zones = AvalancheForecastZone.all
     collection = []
 
-    @zones.each do |zone|
-      collection << RGeo::GeoJSON.encode(factory.feature(zone.the_geom, nil,
-                          {name:      zone.name,
-                           timezone:  zone.zone_url,
-                           elevation: zone.url}))
+    zones.each do |zone|
+      collection << encode(zone)
     end
     respond_with collection
   end
 
   def show
+    zone = encode(zone)
+    respond_with zone
+  end
+
+  def encode(zone)
     factory = RGeo::GeoJSON::EntityFactory.instance
-    @zone = AvalancheForecastZone.find(params[:id])
-    @zone = RGeo::GeoJSON.encode(factory.feature(@zone.the_geom, nil,
-                        {name:      @zone.name,
-                         timezone:  @zone.zone_url,
-                         elevation: @zone.url}))
-    respond_with @zone
+    zone = RGeo::GeoJSON.encode(factory.feature(zone.the_geom, nil,
+                        {name:      zone.name,
+                         timezone:  zone.zone_url,
+                         elevation: zone.url}))
   end
 end
