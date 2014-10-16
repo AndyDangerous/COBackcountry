@@ -24,6 +24,6 @@ class Api::V1::SkiPlacesController < ApplicationController
 
   def encode(ski_place)
     factory = RGeo::GeoJSON::EntityFactory.instance
-    RGeo::GeoJSON.encode(factory.feature(ski_place.geometry, nil, {name: "#{@ski_place.name}", id: "#{@ski_place.id}"}))
+    RGeo::GeoJSON.encode(factory.feature(ski_place.geometry, nil, {name: "#{ski_place.name}", id: "#{ski_place.id}"}))
   end
 end
