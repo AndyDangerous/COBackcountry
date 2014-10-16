@@ -2,12 +2,11 @@ class GpxParser
 
   def self.parse(file_thing)
     # @name = file_thing.original_filename
-    @gpx = file_thing.tempfile
-    parse_file
+    parse_file(file_thing.tempfile)
   end
 
-  def self.parse_file
-    data = @gpx.read
+  def self.parse_file(gpx)
+    data = gpx.read
     @file_mode = data =~ /trkpt/ ? "//trkpt" : (data =~ /rtept/ ? "//rtept" : "//wpt")
 
     geo_json = '{"type": "Feature", "geometry": {"type": "MultiLineString","coordinates": [['

@@ -274,6 +274,7 @@ DEPENDENCIES
   launchy
   leaflet-markercluster-rails
   leaflet-rails!
+  nokogiri
   nyan-cat-formatter
   paperclip (~> 4.2)
   pg
