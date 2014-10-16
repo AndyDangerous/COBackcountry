@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root 'static_pages#index'
 
-  resources :ski_places, only[:show, :new, :create]
+  resources :ski_places, only: [:show, :new, :create]
 
   get '/resources' => 'static_pages#resources'
   get '/safety' => 'static_pages#safety'
