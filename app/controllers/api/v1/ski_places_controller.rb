@@ -2,6 +2,7 @@ class Api::V1::SkiPlacesController < ApplicationController
   respond_to :json
 
   def index
+    factory = RGeo::GeoJSON::EntityFactory.instance
     ski_places = SkiPlace.all
     this_is_bullshit = []
 
