@@ -1,9 +1,8 @@
 var $;
 
 $ = jQuery;
-
 $(document).on("ready page:load", function(){
-  var map, geojsonLayer, geojsonUrl, mahLayer
+  var map, geojsonLayer, geojsonUrl, mahLayer, junk
   map = L.map('map').setView([39, -106], 7);
 
   L.tileLayer('http://{s}.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.png', {
@@ -14,35 +13,37 @@ $(document).on("ready page:load", function(){
 
   mahLayer = L.featureGroup();
 
-var numberOfGeometries = gon.numberOfGeometries || 1;
-for (var i = 1; i <= numberOfGeometries; i++) {
-    var counter = gon.counter || i;
 
-    geojsonUrl = "/api/v1/"+ gon.geometry_url +"/"+ counter +".json";
+  var numberOfGeometries = gon.numberOfGeometries || 1;
+  for (var i = 1; i <= numberOfGeometries; i++) {
+        var counter = gon.counter || i;
 
-    var geojsonLayer = new L.GeoJSON();
+        geojsonUrl = "/api/v1/"+ gon.geometry_url +"/"+ counter +".json";
 
-      $.getJSON(geojsonUrl, function(data){
-        console.log("success")
-          L.geoJson(data, {
-            style: function (feature) {
-                return {color: "red", radius: 5};
-            },
-            // }.addTo(mahLayer),
 
-            onEachFeature: function (feature, layer) {
-                layer.bindPopup(
-    					  '<a href="/ski_places/'+ feature.properties.id +'"> '+ feature.properties.name +'</a>'
-    					  );
-            }
-          // });
-          }).addTo(mahLayer);
+        $.getJSON(geojsonUrl, function(data){
 
-          // https://github.com/Leaflet/Leaflet.markercluster/issues/350
-      });
-}
-mahLayer.addTo(map);
-bounds = mahLayer.getBounds();
-map.setBounds(bounds);
+            junk = L.geoJson(data, {
+                style: function (feature) {
+                    return {color: "red", radius: 5};
+                },
 
-})
+                onEachFeature: function (feature, layer) {
+                  layer.bindPopup(
+      					  '<a href="/ski_places/'+ feature.properties.id +'"> '+ feature.properties.name +'</a>'
+      					  );
+                }
+            });
+        });
+
+  }
+
+            // https://github.com/Leaflet/Leaflet.markercluster/issues/350
+
+
+  junk.addTo(map);
+  mahLayer.addLayer(junk);
+  bounds = mahLayer.getBounds();
+  map.fitBounds(bounds);
+
+});

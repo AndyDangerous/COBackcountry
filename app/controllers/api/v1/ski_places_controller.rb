@@ -12,7 +12,7 @@ class Api::V1::SkiPlacesController < ApplicationController
     end
 
     ski_place_collection = factory.feature_collection(this_is_bullshit)
-
+binding.pry
     respond_with this_is_bullshit
   end
 
