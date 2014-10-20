@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141015213733) do
+ActiveRecord::Schema.define(version: 20141016070217) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20141015213733) do
     t.text     "description"
     t.string   "snotel_station_id"
     t.string   "avalanche_forecast_zone_id"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "image_file_name"
@@ -46,6 +47,14 @@ ActiveRecord::Schema.define(version: 20141015213733) do
     t.integer  "timezone"
     t.string   "triplet"
     t.string   "wind"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "users", force: true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.integer  "ski_place_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
